@@ -18,9 +18,10 @@ framedirn = sys.argv[2] #the framedir is where the frames will be saved
 mediacom = "mpv --keep-open" #chose a command for a media player to open the video after you've made it
 cores = 4 #how many cores to use? set to mp.cpu_count() to let python use the maximum
 
-mod = "Cascadia" #the model - see mods.py for the associated model parameters
-f = '/home/hippo/bin/movie/outputs/cascadia/{}{}.d'.format(mod, ver) #what file is going to be plotted
-print("reading form this file:", f)
+#mod = "Cascadia" #the model - see mods.py for the associated model parameters
+mod = "SA2"
+f = '/home/hippo/bin/movie/outputs/saf/{}{}.d'.format(mod, ver) #what file is going to be plotted
+print("reading from this file:", f)
 mov_name = "{}-mov-{}.mp4".format(mod, ver) #where the movie will be saved
 framedir = "/home/hippo/bin/movie/frames{}".format(framedirn) #where to save the frames
 
@@ -51,6 +52,9 @@ def caller(i, f=f, sd=sd, maxslip=maxslip, reg=reg, proj=proj, scale=scale, fram
 
 with mp.Pool(cores) as p:
 	a = p.map(caller,[x for x in range(minline, maxline)])	
+
+# for i in range(minline, maxline):
+# 	caller(i)
 
 #---------------------------------------------------------------------------------------------------------------
 

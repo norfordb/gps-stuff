@@ -17,7 +17,9 @@ def reader(fi, li, e): #opens the input files. 0 as 3rd argument gets you the li
 
 def plot(corners, lats, lons, mdxs, mdys, edxs, edys, slips, maxslip, reg, proj, outfile, scale, imdir, scalelat, scalelon): #this function generates the frames
 	import gmt
-	testcors = [[corners[0][0][0], corners[0][0][1]], [corners[0][1][0], corners[0][1][1]], [corners[0][2][0], corners[0][2][1]], [corners[0][3][0], corners[0][3][1]]]
+	#print(len(corners), len(slips))
+	while len(corners) != len(slips):
+		corners = corners[:len(corners)//2]
 	fig = gmt.Figure()
 	fig.basemap(R=reg, J=proj, frame=True)
 	#fig.grdimage("land-water_0.5m.grd", cmap="geo", C="land-water11.cpt", I="land-water_0.5m.grad", t=0) #for pretty topography from the indicated cpt file
