@@ -57,7 +57,7 @@ def poly_read(fi): #reads a polygon file and returns a list of list that can be 
 			i += 1
 	return(ncors)
 
-def plot_prep(indat, sd, polydir="/home/hippo/bin/movie/polygons/"): #pulls out the data that we'll be plotting
+def plot_prep(indat, sd, polydir="movie/polygons/"): #pulls out the data that we'll be plotting
 	mod = indat['model'] #lets the software plot the model given in the data
 	res = eval(indat['result'])
 	dat = res['data']

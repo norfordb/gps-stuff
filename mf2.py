@@ -3,16 +3,10 @@ import math
 import numpy as np
 import glob
 import linecache as lc
-import pkg_resources
-#pkg_resources.require("matplotlib==2.0.2")
 import matplotlib
 import matplotlib.pyplot as plt
-from matplotlib import cm
-from matplotlib import colors
 from matplotlib.patches import Rectangle
-
-# from matplotlib.figure import Figure
-# from matplotlib.patches import Rectangle
+from matplotlib.patches import Rectangle
 import datetime #for converting epoch timestamps to ymdhms
 
 
@@ -63,7 +57,7 @@ def dis(lat1, lon1, lat2, lon2): #calculates the distance between 2 points using
 
 def station_dict(): #makes a dictionary with the locations of all the sites
 	sd = {}
-	sta_file = open("/home/hippo/bin/movie/site_lat_lon_ele.txt", "r")
+	sta_file = open("site_lat_lon_ele.txt", "r")
 	for line in sta_file:
 		l = line.split()
 		sd[l[0]] = [float(l[1]), float(l[2]), float(l[3]) ]
@@ -93,5 +87,3 @@ def gen_tmq(infile, minline, maxline): #gets times, magnitudes and qualities fro
 		t = datetime.datetime.fromtimestamp(r['time'] - off).strftime('%Y-%m-%d %H:%M:%S')
 		tmqs.append([t, r['Mw'], float("{0:.2f}".format(r['Q']))])
 	return(tmqs)
-
-#labeler(5, 7.6, "", "", 1, "/home/hippo/bin/movie/frames1")

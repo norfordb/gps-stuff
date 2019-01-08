@@ -16,17 +16,20 @@ sd = mf2.station_dict() #where all the stations are located
 ver = sys.argv[1] #run2.py is argv[0], this determines the file name of the input and output - comment if you want to adjust it manually
 framedirn = sys.argv[2] #the framedir is where the frames will be saved
 mediacom = "mpv --keep-open" #chose a command for a media player to open the video after you've made it
-cores = 4 #how many cores to use? set to mp.cpu_count() to let python use the maximum
+cores = mp.cpu_count() #how many cores to use? set to mp.cpu_count() to let python use the maximum
 
 #mod = "Cascadia" #the model - see mods.py for the associated model parameters
-mod = "SA2"
-f = '/home/hippo/bin/movie/outputs/saf/{}{}.d'.format(mod, ver) #what file is going to be plotted
+mod = "Tohoku"
+f = 'movie/inputs/{}{}.d'.format(mod, ver) #what file is going to be plotted
 print("reading from this file:", f)
-mov_name = "{}-mov-{}.mp4".format(mod, ver) #where the movie will be saved
-framedir = "/home/hippo/bin/movie/frames{}".format(framedirn) #where to save the frames
+mov_name = "movie/outputs/{}-mov-{}.mp4".format(mod, ver) #where the movie will be saved
+framedir = "movie/frames{}".format(framedirn) #where to save the frames
 
-scalelat = 46.4 #where to put the scale vector - I'll try to automate this at some point
-scalelon = 233.2 
+
+scalelat = 32.6 #where to put the scale vector - I'll try to automate this at some point
+scalelon = 134.2 
+
+#cascadia - 46.4 233.2
 
 #---------- the lines below this point should not be changed ------------------------------------------------------------------
 
