@@ -6,6 +6,7 @@ This software relies on gmt-python. Instructions for installation can be found h
 https://www.gmtpython.xyz/latest/install.html
 
 Begin by downloading an output file from a testing version of the rtGNSS scirpts. Save it as, for example, movie/inputs/Tohoku001.d
+
 Then set:
 
 mod = "Tohoku" 
